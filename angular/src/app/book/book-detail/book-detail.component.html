@@ -1,0 +1,62 @@
+<div class="card" *ngIf="book">
+    <div class="card-header">
+        <div class="row">
+            <div class="col col-md-6">
+                <h5 class="card-title">{{ '::Details' | abpLocalization }}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6"> <strong> {{'::Title' | abpLocalization}}:</strong> {{book.title}}</div>
+            <div class="col-6"> <strong> {{'::Authors' | abpLocalization}}:</strong> {{book.authors}}</div>
+        </div>
+        <div class="row">
+            <div class="col-6"> <strong>{{'::Owner' | abpLocalization}}:</strong> {{book.authors}}</div>
+            <div class="col-6"> <strong>{{'::Type' | abpLocalization}}:</strong> {{ '::Enum:BookType:' + book.type |
+                abpLocalization
+                }}</div>
+        </div>
+        <div class="row">
+            <div class="col-6"> <strong>{{'::Status' | abpLocalization}}:</strong> {{ '::Enum:BookStatus:' +
+                book.status |
+                abpLocalization }}</div>
+            <div class="col-6"> <strong>{{'::Location' | abpLocalization}}:</strong> {{ '::Enum:BookLocation:' +
+                book.location |
+                abpLocalization }}
+            </div>
+        </div>
+
+        <hr />
+        <!-- Main Body -->
+        <section>
+            <div class="container">
+                <div class="row" *ngIf="comments.length > 0">
+                    <div class="col-12 pb-4">
+                        <div><strong>Comments</strong></div>
+                        <div *ngFor="let comment of comments" class="comment mt-4 text-justify float-left">
+                            <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40"
+                                height="40">
+                            <strong>{{comment.user.name}}</strong> <br>
+                            <p>{{comment.comment}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <form id="algin-form">
+                        <div class="form-group">
+                            <strong>Leave your comment</strong>
+                            <textarea name="msg" id="" msg cols="30" rows="5" [(ngModel)]="comment" class="form-control"
+                                required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" [disabled]="!comment" type="button" (click)="postComment()" id="post">Post Comment</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
