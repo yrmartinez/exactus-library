@@ -307,3 +307,6 @@ src/Exactus.BookStore.IdentityServer/Logs/*
 src/Exactus.BookStore.HttpApi.Host/Logs/*
 src/Exactus.BookStore.HttpApi.Host/Logs/*
 src/Exactus.BookStore.DbMigrator/Logs/*
+aspnet-core/src/Exactus.BookStore.DbMigrator/appsettings.json
+.gitignore
+aspnet-core/src/Exactus.BookStore.HttpApi.Host/appsettings.json
