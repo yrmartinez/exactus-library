@@ -53,7 +53,7 @@ export class BookDetailComponent implements OnInit {
     this.createComment.bookId = this.bookId;
     this._commentsService.create(this.createComment).subscribe(() => {
       this.comment = null;
-      this.toaster.success('::BookReturnedSuccessfully', 'AbpUi::Success', this.options);
+      this.toaster.success('', 'AbpUi::Success', this.options);
       this.getComments();
     });
   }
